@@ -17,7 +17,9 @@ const FALLBACK_PRODUCTS = [
         tipo: 'Eau de Parfum', volume: '60ml',
         notas: ['Âmbar', 'Oud', 'Baunilha'],
         foto: 'https://images.unsplash.com/photo-1705936119725-f893c63ce939?w=600&q=80&fit=crop',
-        preco: 0, ativo: true,
+        descricao: 'Uma joia olfativa que combina âmbar dourado com oud fumacento e baunilha cremosa. Presença marcante e fixação excepcional.',
+        badge: 'Mais Vendido', categoria: 'unissex',
+        preco: 149.90, ativo: true,
     },
     {
         nome: "Bade'e Al Oud for Glory",
@@ -25,7 +27,9 @@ const FALLBACK_PRODUCTS = [
         tipo: 'Eau de Parfum', volume: '100ml',
         notas: ['Oud', 'Incenso', 'Madeira'],
         foto: 'https://images.unsplash.com/photo-1705936119495-574eeecde4e3?w=600&q=80&fit=crop',
-        preco: 0, ativo: true,
+        descricao: 'A glória do oud em sua forma mais pura. Incenso sagrado e madeiras preciosas em uma fragrância de prestígio árabe.',
+        badge: 'Exclusivo', categoria: 'masculino',
+        preco: 129.90, ativo: true,
     },
     {
         nome: 'Yara',
@@ -33,7 +37,9 @@ const FALLBACK_PRODUCTS = [
         tipo: 'Eau de Parfum', volume: '100ml',
         notas: ['Rosa', 'Jasmim', 'Almíscar'],
         foto: 'https://images.unsplash.com/photo-1709662369957-0cbf9f8452fc?w=600&q=80&fit=crop',
-        preco: 0, ativo: true,
+        descricao: 'Feminilidade em flor. Rosa delicada encontra jasmim intenso e um almíscar suave que persiste na pele o dia todo.',
+        badge: 'Novo', categoria: 'feminino',
+        preco: 99.90, ativo: true,
     },
     {
         nome: 'Wardi',
@@ -41,7 +47,9 @@ const FALLBACK_PRODUCTS = [
         tipo: 'Eau de Parfum', volume: '50ml',
         notas: ['Rosa', 'Oud', 'Âmbar'],
         foto: 'https://images.unsplash.com/photo-1636503461005-4f7dd6081d27?w=600&q=80&fit=crop',
-        preco: 0, ativo: true,
+        descricao: 'A rosa do Oriente Médio elevada pelo oud e pelo âmbar. Uma fragrância romântica e sofisticada para todas as ocasiões.',
+        categoria: 'feminino',
+        preco: 119.90, ativo: true,
     },
 ];
 
