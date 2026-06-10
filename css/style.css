@@ -219,6 +219,69 @@ ul { list-style: none; }
     animation: scrollPulse 2.4s ease-in-out infinite;
 }
 
+/* ── Garantias ── */
+#garantias {
+    border-top: 1px solid rgba(201, 168, 76, 0.12);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+    background: rgba(201, 168, 76, 0.03);
+}
+.garantias-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+}
+.garantia-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 32px 24px;
+    flex: 1;
+}
+.garantia-item svg {
+    width: 28px;
+    height: 28px;
+    color: var(--gold);
+    flex-shrink: 0;
+}
+.garantia-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.garantia-item strong {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    text-transform: uppercase;
+}
+.garantia-item span {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+.garantia-sep {
+    width: 1px;
+    height: 40px;
+    background: rgba(201, 168, 76, 0.15);
+    flex-shrink: 0;
+}
+@media (max-width: 768px) {
+    .garantias-inner {
+        flex-direction: column;
+        padding: 0 24px;
+        gap: 0;
+    }
+    .garantia-item { padding: 20px 0; width: 100%; }
+    .garantia-sep { width: 100%; height: 1px; }
+}
+
 /* ── Collection ── */
 #colecao {
     padding: 128px 0;
