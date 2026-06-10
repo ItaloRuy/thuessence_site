@@ -160,6 +160,10 @@ function openProductModal(index) {
         ? `R$ ${Number(p.preco).toFixed(2).replace('.', ',')}`
         : '';
 
+    const descEl = document.getElementById('pmodal-desc');
+    descEl.textContent = p.descricao || '';
+    descEl.style.display = p.descricao ? 'block' : 'none';
+
     document.getElementById('pmodal-notes').innerHTML =
         (p.notas || []).map(n => `<span>${n}</span>`).join('');
 
