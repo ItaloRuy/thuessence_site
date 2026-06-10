@@ -2,6 +2,10 @@
 
 const WA_NUMBER = '554399767665';
 
+function track(event, params) {
+    if (typeof gtag === 'function') gtag('event', event, params);
+}
+
 let productsData = [];
 let currentModalPhotos = [];
 let currentPhotoIndex = 0;
@@ -176,6 +180,15 @@ function openProductModal(index) {
     document.getElementById('pmodal-whatsapp').href =
         `https://wa.me/${WA_NUMBER}?text=${msg}`;
 
+    track('view_item', {
+        item_id:       p.nome,
+        item_name:     p.nome,
+        item_brand:    p.marca,
+        item_category: p.categoria || '',
+        price:         p.preco || 0,
+        currency:      'BRL',
+    });
+
     updateModalPhoto();
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -313,6 +326,17 @@ document.addEventListener('DOMContentLoaded', () => {
     initReveal();
     initMenu();
     loadProducts();
+
+    document.getElementById('pmodal-whatsapp').addEventListener('click', () => {
+        const p = productsData.find((_, i) =>
+            document.getElementById('pmodal-name').textContent === productsData[i]?.nome
+        ) || {};
+        track('begin_checkout', {
+            item_name:  document.getElementById('pmodal-name').textContent,
+            currency:   'BRL',
+            value:      p.preco || 0,
+        });
+    });
 
     document.getElementById('pmodal-close').addEventListener('click', closeProductModal);
     document.getElementById('pmodal-prev').addEventListener('click', prevPhoto);
