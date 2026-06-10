@@ -1034,6 +1034,139 @@ footer {
     100% { transform: scale(1.6); opacity: 0; }
 }
 
+/* ── Como Comprar ── */
+#como-comprar {
+    padding: 120px 0;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+.passos-grid {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 72px;
+}
+.passo-item {
+    flex: 1;
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 0 24px;
+}
+.passo-numero {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: rgba(201, 168, 76, 0.14);
+    line-height: 1;
+    letter-spacing: 0.05em;
+}
+.passo-icon {
+    width: 64px;
+    height: 64px;
+    border: 1px solid rgba(201, 168, 76, 0.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -20px;
+    background: rgba(201, 168, 76, 0.04);
+    transition: border-color 0.35s, background 0.35s;
+}
+.passo-item:hover .passo-icon {
+    border-color: rgba(201, 168, 76, 0.55);
+    background: rgba(201, 168, 76, 0.08);
+}
+.passo-icon svg {
+    width: 26px;
+    height: 26px;
+    color: var(--gold);
+}
+.passo-item h3 {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.02em;
+}
+.passo-item p {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.85;
+    font-weight: 300;
+}
+.passo-conector {
+    flex-shrink: 0;
+    align-self: center;
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(to right, rgba(201,168,76,0.3), rgba(201,168,76,0.08));
+    position: relative;
+    margin-top: -30px;
+}
+.passo-conector::after {
+    content: '';
+    position: absolute;
+    right: -4px;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    border-right: 1px solid rgba(201,168,76,0.4);
+    border-top: 1px solid rgba(201,168,76,0.4);
+    transform: translateY(-50%) rotate(45deg);
+}
+.passos-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 72px;
+}
+.btn-comprar-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--gold);
+    color: #09080d;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 18px 44px;
+    transition: background 0.35s, transform 0.3s, letter-spacing 0.35s;
+}
+.btn-comprar-wa svg {
+    width: 18px;
+    height: 18px;
+    fill: #09080d;
+    flex-shrink: 0;
+}
+.btn-comprar-wa:hover {
+    background: var(--gold-light);
+    letter-spacing: 0.38em;
+    transform: translateY(-2px);
+}
+@media (max-width: 860px) {
+    .passos-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 36px;
+    }
+    .passo-conector {
+        width: 1px;
+        height: 36px;
+        margin-top: 0;
+        background: linear-gradient(to bottom, rgba(201,168,76,0.3), rgba(201,168,76,0.05));
+    }
+    .passo-conector::after { display: none; }
+    .passo-item { max-width: 360px; padding: 0 16px; }
+    #como-comprar { padding: 80px 0; }
+}
+
 /* ── Reveal Animations ── */
 .reveal {
     opacity: 0;
