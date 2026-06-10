@@ -253,6 +253,29 @@ function renderProducts(products) {
     if (loading) loading.style.display = 'none';
     grid.style.display = 'grid';
     initCards();
+    initFiltros();
+}
+
+/* ── Filtros de categoria ── */
+function initFiltros() {
+    const btns = document.querySelectorAll('.filtro-btn');
+    if (!btns.length) return;
+
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            btns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filtro = btn.dataset.filtro;
+            const cards  = document.querySelectorAll('.product-card');
+
+            cards.forEach((card, i) => {
+                const categoria = productsData[i]?.categoria || '';
+                const visivel   = filtro === 'todos' || categoria === filtro;
+                card.style.display = visivel ? '' : 'none';
+            });
+        });
+    });
 }
 
 /* ── Carregar produtos (Firebase ou fallback) ── */
