@@ -304,6 +304,34 @@ ul { list-style: none; }
     pointer-events: none;
 }
 
+.product-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 2px;
+    pointer-events: none;
+}
+.product-badge--mais-vendido {
+    background: var(--gold);
+    color: #09080d;
+}
+.product-badge--novo {
+    background: rgba(76, 201, 122, 0.15);
+    color: #4cc97a;
+    border: 1px solid rgba(76, 201, 122, 0.4);
+}
+.product-badge--exclusivo {
+    background: rgba(201, 168, 76, 0.12);
+    color: var(--gold);
+    border: 1px solid rgba(201, 168, 76, 0.35);
+}
+
 /* Product Info */
 .product-info { padding: 24px; }
 

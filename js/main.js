@@ -225,7 +225,8 @@ function renderProducts(products) {
             : '';
 
         // Pega primeira foto do array, ou foto única (compatibilidade)
-        const fotoUrl = (Array.isArray(p.fotos) && p.fotos[0]) || p.foto || '';
+        const fotoUrl  = (Array.isArray(p.fotos) && p.fotos[0]) || p.foto || '';
+        const badgeHtml = p.badge ? `<span class="product-badge product-badge--${p.badge.toLowerCase().replace(' ', '-')}">${p.badge}</span>` : '';
 
         return `
             <div class="product-card" onclick="openProductModal(${i})">
@@ -233,6 +234,7 @@ function renderProducts(products) {
                     <img src="${fotoUrl}" alt="${p.nome}" loading="lazy">
                     <div class="visual-overlay"></div>
                     <span class="product-brand">${p.marca}</span>
+                    ${badgeHtml}
                 </div>
                 <div class="product-info">
                     ${typeStr ? `<span class="product-type">${typeStr}</span>` : ''}
