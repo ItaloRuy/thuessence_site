@@ -167,8 +167,11 @@ function openProductModal(index) {
     document.getElementById('pmodal-notes').innerHTML =
         (p.notas || []).map(n => `<span>${n}</span>`).join('');
 
+    const precoStr = p.preco > 0
+        ? ` por *R$ ${Number(p.preco).toFixed(2).replace('.', ',')}*`
+        : '';
     const msg = encodeURIComponent(
-        `Olá! Vi o site da Thuessence e tenho interesse no perfume *${p.nome}*. Poderia me dar mais informações?`
+        `Olá! Quero comprar o *${p.nome}* (${p.marca})${precoStr}. Ainda tem disponível?`
     );
     document.getElementById('pmodal-whatsapp').href =
         `https://wa.me/${WA_NUMBER}?text=${msg}`;
