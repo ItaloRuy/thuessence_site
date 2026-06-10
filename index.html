@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thuessence — Niche Fragrances</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect fill='%2309080d' width='64' height='64'/%3E%3Ctext x='32' y='35' font-family='Georgia,serif' font-size='44' font-weight='700' fill='%23c9a84c' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">THUESSENCE</a>
+            <ul class="nav-links">
+                <li><a href="#colecao">Coleção</a></li>
+                <li><a href="#essencia">Essência</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-content">
+            <span class="hero-label">— NICHE FRAGRANCES —</span>
+            <h1 class="hero-title">THUESSENCE</h1>
+            <div class="hero-divider"></div>
+            <p class="hero-subtitle">A essência do que você sente</p>
+            <a href="#colecao" class="btn-hero">DESCUBRA A COLEÇÃO</a>
+        </div>
+        <div class="scroll-indicator">
+            <span class="scroll-line"></span>
+        </div>
+    </section>
+
+    <!-- Collection -->
+    <section id="colecao">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">— VITRINE —</span>
+                <h2 class="section-title">Nossa Coleção</h2>
+                <p class="section-desc">Cada fragrância é uma narrativa, uma memória afetiva transformada em aroma.</p>
+            </div>
+
+            <div id="products-loading" style="text-align:center;padding:60px 0;color:var(--text-muted);font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase">
+                Carregando coleção...
+            </div>
+            <div class="products-grid" id="products-grid" style="display:none"></div>
+        </div>
+    </section>
+
+    <!-- Essence -->
+    <section id="essencia">
+        <div class="container">
+            <div class="essence-inner">
+                <div class="essence-text reveal">
+                    <span class="section-tag">— NOSSA ESSÊNCIA —</span>
+                    <h2 class="section-title">Cada frasco conta<br><em>uma história do Oriente</em></h2>
+                    <p>A perfumaria árabe é uma das mais antigas e respeitadas do mundo. Ingredientes como oud, âmbar e rosa de Taif carregam séculos de tradição — e nenhuma outra cultura domina as fragrâncias como o Oriente Médio.</p>
+                    <p>Thuessence seleciona perfumes e cosméticos originais com um critério simples: só o que realmente vale a pena chegar até você.</p>
+                    <div class="essence-detail">
+                        <div class="detail-item">
+                            <span class="detail-number">100%</span>
+                            <span class="detail-label">Produtos originais</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-number">+20</span>
+                            <span class="detail-label">Marcas árabes</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-number">BR</span>
+                            <span class="detail-label">Envio para todo o Brasil</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="essence-visual reveal">
+                    <div class="essence-art">
+                        <div class="art-circle circle-1"></div>
+                        <div class="art-circle circle-2"></div>
+                        <div class="art-circle circle-3"></div>
+                        <span class="art-label">T H U E S S E N C E</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contato">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="logo">THUESSENCE</a>
+                    <p>A essência do que você sente.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#colecao">Coleção</a></li>
+                        <li><a href="#essencia">Essência</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <p><a href="mailto:contato@thuessence.com">contato@thuessence.com</a></p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/thuessence_" target="_blank" rel="noopener noreferrer" aria-label="Instagram">@thuessence_</a>
+                        <span class="social-divider">·</span>
+                        <a href="https://wa.me/554399767665" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">(43) 99767-665</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-line"></div>
+                <p>© 2025 Thuessence. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Produto -->
+    <div id="product-modal-overlay">
+        <div id="product-modal" role="dialog" aria-modal="true">
+            <button class="pmodal-close" id="pmodal-close" aria-label="Fechar">&times;</button>
+            <div class="pmodal-image">
+                <div class="pmodal-gallery">
+                    <img id="pmodal-img" src="" alt="">
+                    <div class="pmodal-gallery-nav">
+                        <button id="pmodal-prev" class="pmodal-nav-btn" aria-label="Foto anterior">&#10094;</button>
+                        <span id="pmodal-counter" class="pmodal-counter">1/1</span>
+                        <button id="pmodal-next" class="pmodal-nav-btn" aria-label="Próxima foto">&#10095;</button>
+                    </div>
+                </div>
+                <div class="pmodal-img-overlay"></div>
+                <span id="pmodal-brand" class="pmodal-brand-badge"></span>
+            </div>
+            <div class="pmodal-content">
+                <span class="section-tag" id="pmodal-type"></span>
+                <h2 class="pmodal-name" id="pmodal-name"></h2>
+                <div class="pmodal-divider"></div>
+                <div class="pmodal-price" id="pmodal-price"></div>
+                <div class="pmodal-notes" id="pmodal-notes"></div>
+                <a class="pmodal-whatsapp" id="pmodal-whatsapp" href="#" target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    Comprar via WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp flutuante — troque o número abaixo pelo seu (55 + DDD + número) -->
+    <a href="https://wa.me/554399767665?text=Olá!%20Vi%20o%20site%20da%20Thuessence%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20perfumes."
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Falar no WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "site_thuessence",
+  "version": "1.0.0",
+  "description": "**Thuessence é uma revenda brasileira de perfumes e cosméticos árabes originais.**",
+  "main": "migrar-produtos.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "firebase-admin": "^14.0.0"
+  }
+}

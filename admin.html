@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin — Thuessence</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect fill='%2309080d' width='64' height='64'/%3E%3Ctext x='32' y='35' font-family='Georgia,serif' font-size='44' font-weight='700' fill='%23c9a84c' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:          #09080d;
+            --bg-secondary:#0e0c14;
+            --bg-card:     #12101a;
+            --bg-input:    #1a1726;
+            --gold:        #c9a84c;
+            --gold-light:  #e8d5a3;
+            --gold-dim:    rgba(201,168,76,0.12);
+            --text:        #f0ece4;
+            --text-sub:    #b8b0a5;
+            --text-muted:  #7a7065;
+            --border:      rgba(201,168,76,0.12);
+            --danger:      #c94c4c;
+            --danger-dim:  rgba(201,76,76,0.14);
+            --success:     #4cc97a;
+            --font-serif:  'Playfair Display', Georgia, serif;
+            --font-sans:   'Raleway', sans-serif;
+        }
+
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-sans);
+            font-weight: 300;
+            min-height: 100vh;
+        }
+
+        /* ── Login ── */
+        #login-screen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at 50% 40%, #1c1228 0%, var(--bg) 70%);
+        }
+
+        .login-card {
+            width: 380px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 52px 44px;
+        }
+
+        .login-logo {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            letter-spacing: 0.3em;
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .login-sub {
+            font-size: 0.6rem;
+            letter-spacing: 0.38em;
+            color: var(--text-muted);
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        .field { margin-bottom: 20px; }
+
+        .field label {
+            display: block;
+            font-size: 0.6rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"] {
+            width: 100%;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 300;
+            padding: 12px 16px;
+            outline: none;
+            transition: border-color 0.3s;
+            -webkit-appearance: none;
+        }
+
+        input:focus { border-color: rgba(201,168,76,0.5); }
+        input::placeholder { color: var(--text-muted); font-size: 0.82rem; }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: transparent;
+            border: 1px solid rgba(201,168,76,0.45);
+            color: var(--gold);
+            font-family: var(--font-sans);
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.32em;
+            text-transform: uppercase;
+            padding: 14px 28px;
+            cursor: pointer;
+            transition: background 0.3s, border-color 0.3s;
+            white-space: nowrap;
+        }
+        .btn-primary:hover  { background: var(--gold-dim); border-color: var(--gold); }
+        .btn-primary:disabled { opacity: 0.45; cursor: not-allowed; }
+        .btn-primary.full   { width: 100%; margin-top: 8px; }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            font-family: var(--font-sans);
+            font-size: 0.62rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: border-color 0.3s, color 0.3s;
+        }
+        .btn-ghost:hover { border-color: rgba(201,168,76,0.35); color: var(--text-sub); }
+
+        .error-msg {
+            font-size: 0.75rem;
+            color: var(--danger);
+            margin-bottom: 14px;
+            min-height: 18px;
+        }
+
+        /* ── Admin Header ── */
+        .admin-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 48px;
+            background: rgba(9,8,13,0.96);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .admin-header .logo {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            letter-spacing: 0.3em;
+            color: var(--gold);
+            margin-right: auto;
+        }
+
+        .admin-badge {
+            font-size: 0.56rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+        }
+
+        /* ── Admin Main ── */
+        .admin-main {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 48px 40px;
+        }
+
+        .admin-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 32px;
+        }
+
+        .admin-toolbar h2 {
+            font-family: var(--font-serif);
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .admin-toolbar h2 span {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            margin-left: 8px;
+        }
+
+        /* ── Product List ── */
+        .products-list { display: flex; flex-direction: column; gap: 6px; }
+
+        .product-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 14px 20px;
+            transition: border-color 0.3s;
+        }
+        .product-row:hover { border-color: rgba(201,168,76,0.28); }
+
+        .row-thumb {
+            width: 58px;
+            height: 58px;
+            flex-shrink: 0;
+            overflow: hidden;
+            background: var(--bg-secondary);
+        }
+        .row-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .no-thumb {
+            width: 100%; height: 100%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.52rem; letter-spacing: 0.08em;
+            color: var(--text-muted); text-transform: uppercase;
+            text-align: center; padding: 4px;
+        }
+
+        .row-info { flex: 1; min-width: 0; }
+
+        .row-name {
+            display: block;
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 3px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .row-meta { font-size: 0.7rem; color: var(--text-muted); }
+
+        .row-price {
+            font-family: var(--font-serif);
+            font-size: 1.05rem;
+            color: var(--gold);
+            font-weight: 600;
+            min-width: 88px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .row-status {
+            font-size: 0.56rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border: 1px solid;
+            min-width: 66px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        .row-status.active   { color: var(--success); border-color: rgba(76,201,122,0.3); }
+        .row-status.inactive { color: var(--text-muted); border-color: var(--border); }
+
+        .row-actions { display: flex; gap: 6px; flex-shrink: 0; }
+
+        .btn-edit {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-sub);
+            font-family: var(--font-sans);
+            font-size: 0.6rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            padding: 8px 14px;
+            cursor: pointer;
+            transition: border-color 0.3s, color 0.3s;
+        }
+        .btn-edit:hover { border-color: var(--gold); color: var(--gold); }
+
+        .btn-delete {
+            background: transparent;
+            border: 1px solid transparent;
+            color: var(--text-muted);
+            font-family: var(--font-sans);
+            font-size: 0.6rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            padding: 8px 14px;
+            cursor: pointer;
+            transition: border-color 0.3s, color 0.3s;
+        }
+        .btn-delete:hover { border-color: var(--danger-dim); color: var(--danger); }
+
+        .state-msg {
+            text-align: center;
+            padding: 64px 0;
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        /* ── Modal ── */
+        #modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.72);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            z-index: 200;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 40px 24px;
+            overflow-y: auto;
+        }
+
+        .modal {
+            background: var(--bg-card);
+            border: 1px solid rgba(201,168,76,0.22);
+            width: 100%;
+            max-width: 620px;
+            margin: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 32px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .modal-header h3 {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            color: var(--text);
+        }
+
+        .btn-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.6rem;
+            line-height: 1;
+            cursor: pointer;
+            padding: 0 2px;
+            transition: color 0.3s;
+        }
+        .btn-close:hover { color: var(--text); }
+
+        #product-form { padding: 28px 32px; }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .field.full { grid-column: 1 / -1; }
+
+        .upload-wrap {
+            position: relative;
+            border: 1px dashed rgba(201,168,76,0.28);
+            padding: 20px 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+        .upload-wrap:hover { border-color: rgba(201,168,76,0.6); }
+
+        .upload-wrap input[type="file"] {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .upload-hint {
+            font-size: 0.68rem;
+            letter-spacing: 0.14em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            pointer-events: none;
+        }
+
+        #foto-preview {
+            display: none;
+            margin-bottom: 12px;
+        }
+        #foto-preview img {
+            max-height: 130px;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .fotos-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .foto-item {
+            position: relative;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            aspect-ratio: 1;
+        }
+        .foto-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .foto-item button {
+            position: absolute;
+            top: 2px; right: 2px;
+            width: 24px; height: 24px;
+            background: rgba(201,76,76,0.9);
+            border: none;
+            color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem;
+            line-height: 1;
+        }
+
+        .toggle-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+            cursor: pointer;
+        }
+        .toggle-row input[type="checkbox"] {
+            width: 15px;
+            height: 15px;
+            accent-color: var(--gold);
+            flex-shrink: 0;
+        }
+        .toggle-row span {
+            font-size: 0.78rem;
+            color: var(--text-sub);
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 28px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ── Toast ── */
+        #toast {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-sub);
+            font-size: 0.8rem;
+            padding: 14px 22px;
+            z-index: 300;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
+        }
+        #toast.show { opacity: 1; transform: translateY(0); }
+        #toast.ok   { border-color: rgba(76,201,122,0.4); color: var(--success); }
+        #toast.err  { border-color: rgba(201,76,76,0.4);  color: var(--danger);  }
+    </style>
+</head>
+<body>
+
+    <!-- ── Login ── -->
+    <div id="login-screen">
+        <div class="login-card">
+            <div class="login-logo">THUESSENCE</div>
+            <p class="login-sub">Painel Administrativo</p>
+            <form id="login-form">
+                <div class="field">
+                    <label>Email</label>
+                    <input type="email" id="email" autocomplete="email" required>
+                </div>
+                <div class="field">
+                    <label>Senha</label>
+                    <input type="password" id="password" autocomplete="current-password" required>
+                </div>
+                <div id="login-error" class="error-msg"></div>
+                <button type="submit" class="btn-primary full">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ── Dashboard ── -->
+    <div id="dashboard" style="display:none">
+        <header class="admin-header">
+            <span class="logo">THUESSENCE</span>
+            <span class="admin-badge">Admin</span>
+            <button id="btn-logout" class="btn-ghost">Sair</button>
+        </header>
+
+        <main class="admin-main">
+            <div class="admin-toolbar">
+                <h2>Produtos <span id="products-count"></span></h2>
+                <button id="btn-add-product" class="btn-primary">+ Novo Produto</button>
+            </div>
+            <div id="products-list" class="products-list">
+                <p class="state-msg">Carregando...</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- ── Modal Adicionar / Editar ── -->
+    <div id="modal-overlay" style="display:none">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modal-title">Novo Produto</h3>
+                <button id="btn-close-modal" class="btn-close">&times;</button>
+            </div>
+            <form id="product-form">
+                <div class="form-grid">
+                    <div class="field full">
+                        <label>Nome do produto *</label>
+                        <input type="text" id="f-nome" placeholder="Ex: Amber Oud Gold Edition" required>
+                    </div>
+                    <div class="field">
+                        <label>Marca *</label>
+                        <input type="text" id="f-marca" placeholder="Ex: Al Haramain" required>
+                    </div>
+                    <div class="field">
+                        <label>Tipo</label>
+                        <input type="text" id="f-tipo" placeholder="Eau de Parfum">
+                    </div>
+                    <div class="field">
+                        <label>Volume</label>
+                        <input type="text" id="f-volume" placeholder="100ml">
+                    </div>
+                    <div class="field">
+                        <label>Preço (R$)</label>
+                        <input type="number" id="f-preco" step="0.01" min="0" placeholder="189.90">
+                    </div>
+                    <div class="field full">
+                        <label>Notas olfativas (separadas por vírgula)</label>
+                        <input type="text" id="f-notas" placeholder="Âmbar, Oud, Baunilha">
+                    </div>
+                    <div class="field full">
+                        <label>Fotos do produto</label>
+                        <div class="upload-wrap">
+                            <input type="file" id="f-fotos" accept="image/*" multiple>
+                            <span class="upload-hint">Clique ou arraste múltiplas imagens</span>
+                        </div>
+                        <div id="fotos-preview" class="fotos-preview"></div>
+                    </div>
+                    <div class="field">
+                        <label>Ordem de exibição</label>
+                        <input type="number" id="f-ordem" min="1" value="1">
+                    </div>
+                    <div class="field">
+                        <label style="visibility:hidden">.</label>
+                        <label class="toggle-row">
+                            <input type="checkbox" id="f-ativo" checked>
+                            <span>Visível no site</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" id="btn-cancel" class="btn-ghost">Cancelar</button>
+                    <button type="submit" id="btn-save" class="btn-primary">Salvar produto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast"></div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+    <script src="js/firebase-config.js"></script>
+
+    <script>
+        firebase.initializeApp(firebaseConfig);
+        const auth    = firebase.auth();
+        const db      = firebase.firestore();
+        const storage = firebase.storage();
+
+        let editingId      = null;
+        let currentFotoUrls = []; // Array de URLs
+
+        /* ── Toast helper ── */
+        function toast(msg, type = '') {
+            const el = document.getElementById('toast');
+            el.textContent = msg;
+            el.className   = 'show ' + type;
+            clearTimeout(el._t);
+            el._t = setTimeout(() => { el.className = ''; }, 3200);
+        }
+
+        /* ── Auth ── */
+        auth.onAuthStateChanged(user => {
+            document.getElementById('login-screen').style.display = user ? 'none' : 'flex';
+            document.getElementById('dashboard').style.display    = user ? 'block' : 'none';
+            if (user) loadProducts();
+        });
+
+        document.getElementById('login-form').addEventListener('submit', async e => {
+            e.preventDefault();
+            const errEl = document.getElementById('login-error');
+            errEl.textContent = '';
+            try {
+                await auth.signInWithEmailAndPassword(
+                    document.getElementById('email').value,
+                    document.getElementById('password').value
+                );
+            } catch {
+                errEl.textContent = 'Email ou senha incorretos.';
+            }
+        });
+
+        document.getElementById('btn-logout').addEventListener('click', () => auth.signOut());
+
+        /* ── Carregar produtos ── */
+        async function loadProducts() {
+            const list = document.getElementById('products-list');
+            list.innerHTML = '<p class="state-msg">Carregando...</p>';
+
+            try {
+                const snap = await db.collection('produtos').orderBy('ordem').get();
+                const docs = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+                document.getElementById('products-count').textContent = `(${docs.length})`;
+
+                if (!docs.length) {
+                    list.innerHTML = '<p class="state-msg">Nenhum produto cadastrado ainda.</p>';
+                    return;
+                }
+
+                list.innerHTML = docs.map(p => `
+                    <div class="product-row">
+                        <div class="row-thumb">
+                            ${p.foto
+                                ? `<img src="${p.foto}" alt="">`
+                                : '<div class="no-thumb">sem foto</div>'}
+                        </div>
+                        <div class="row-info">
+                            <span class="row-name">${esc(p.nome)}</span>
+                            <span class="row-meta">${esc(p.marca)}${p.tipo ? ' · ' + esc(p.tipo) : ''}${p.volume ? ' · ' + esc(p.volume) : ''}</span>
+                        </div>
+                        <div class="row-price">${p.preco > 0 ? 'R$&nbsp;' + Number(p.preco).toFixed(2).replace('.', ',') : '—'}</div>
+                        <div class="row-status ${p.ativo !== false ? 'active' : 'inactive'}">${p.ativo !== false ? 'Ativo' : 'Inativo'}</div>
+                        <div class="row-actions">
+                            <button class="btn-edit"   onclick="openEdit('${p.id}')">Editar</button>
+                            <button class="btn-delete" onclick="confirmDelete('${p.id}','${esc(p.nome)}')">Excluir</button>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (err) {
+                list.innerHTML = '<p class="state-msg">Erro ao carregar. Veja o console (F12).</p>';
+                console.error(err);
+            }
+        }
+
+        function esc(s) {
+            return String(s)
+                .replace(/&/g,'&amp;')
+                .replace(/</g,'&lt;')
+                .replace(/>/g,'&gt;')
+                .replace(/"/g,'&quot;')
+                .replace(/'/g,'&#39;');
+        }
+
+        /* ── Modal ── */
+        document.getElementById('btn-add-product').addEventListener('click', () => openModal(null));
+        document.getElementById('btn-close-modal').addEventListener('click', closeModal);
+        document.getElementById('btn-cancel').addEventListener('click', closeModal);
+        document.getElementById('modal-overlay').addEventListener('click', e => {
+            if (e.target.id === 'modal-overlay') closeModal();
+        });
+
+        function openModal(id) {
+            editingId       = id;
+            currentFotoUrls = []; // Reset
+
+            document.getElementById('modal-title').textContent = id ? 'Editar Produto' : 'Novo Produto';
+            document.getElementById('product-form').reset();
+            document.getElementById('fotos-preview').innerHTML = '';
+
+            document.getElementById('f-ativo').checked = true;
+            document.getElementById('f-ordem').value   = 1;
+
+            if (id) {
+                db.collection('produtos').doc(id).get().then(doc => {
+                    const p = doc.data();
+                    document.getElementById('f-nome').value   = p.nome   || '';
+                    document.getElementById('f-marca').value  = p.marca  || '';
+                    document.getElementById('f-tipo').value   = p.tipo   || '';
+                    document.getElementById('f-volume').value = p.volume || '';
+                    document.getElementById('f-preco').value  = p.preco  || '';
+                    document.getElementById('f-notas').value  = (p.notas || []).join(', ');
+                    document.getElementById('f-ordem').value  = p.ordem  || 1;
+                    document.getElementById('f-ativo').checked = p.ativo !== false;
+
+                    // Carregar fotos existentes
+                    currentFotoUrls = Array.isArray(p.fotos) ? p.fotos : (p.foto ? [p.foto] : []);
+                    renderFotosPreview();
+                });
+            }
+
+            document.getElementById('modal-overlay').style.display = 'flex';
+        }
+
+        function openEdit(id) { openModal(id); }
+
+        function closeModal() {
+            document.getElementById('modal-overlay').style.display = 'none';
+            editingId = null;
+            currentFotoUrl = null;
+        }
+
+        /* Preview da imagem selecionada */
+        document.getElementById('f-fotos').addEventListener('change', e => {
+            const files = Array.from(e.target.files);
+            let loaded  = 0;
+
+            files.forEach(file => {
+                const reader = new FileReader();
+                reader.onload = ev => {
+                    currentFotoUrls.push(ev.target.result); // Adiciona ao array
+                    loaded++;
+                    if (loaded === files.length) renderFotosPreview();
+                };
+                reader.readAsDataURL(file);
+            });
+        });
+
+        function renderFotosPreview() {
+            const container = document.getElementById('fotos-preview');
+            container.innerHTML = currentFotoUrls.map((url, i) => `
+                <div class="foto-item">
+                    <img src="${url}" alt="foto ${i+1}">
+                    <button type="button" onclick="removeFoto(${i})">×</button>
+                </div>
+            `).join('');
+        }
+
+        function removeFoto(index) {
+            currentFotoUrls.splice(index, 1);
+            renderFotosPreview();
+        }
+
+        /* ── Salvar ── */
+        document.getElementById('product-form').addEventListener('submit', async e => {
+            e.preventDefault();
+            const saveBtn = document.getElementById('btn-save');
+            saveBtn.disabled    = true;
+            saveBtn.textContent = 'Salvando...';
+
+            try {
+                let fotosUrls = [...currentFotoUrls]; // Copia do array atual
+                const fotoFiles = document.getElementById('f-fotos').files;
+
+                // Upload de novas fotos selecionadas
+                for (let file of fotoFiles) {
+                    const ext = file.name.split('.').pop();
+                    const ref = storage.ref(`produtos/${Date.now()}-${Math.random().toString(36).substr(2, 9)}.${ext}`);
+                    await ref.put(file);
+                    const url = await ref.getDownloadURL();
+                    fotosUrls.push(url);
+                }
+
+                const notas = document.getElementById('f-notas').value
+                    .split(',').map(n => n.trim()).filter(Boolean);
+
+                const data = {
+                    nome:   document.getElementById('f-nome').value.trim(),
+                    marca:  document.getElementById('f-marca').value.trim(),
+                    tipo:   document.getElementById('f-tipo').value.trim(),
+                    volume: document.getElementById('f-volume').value.trim(),
+                    preco:  parseFloat(document.getElementById('f-preco').value) || 0,
+                    notas,
+                    fotos:  fotosUrls, // Array de URLs
+                    ordem:  parseInt(document.getElementById('f-ordem').value, 10) || 1,
+                    ativo:  document.getElementById('f-ativo').checked,
+                    updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+                };
+
+                if (editingId) {
+                    await db.collection('produtos').doc(editingId).update(data);
+                } else {
+                    data.createdAt = firebase.firestore.FieldValue.serverTimestamp();
+                    await db.collection('produtos').add(data);
+                }
+
+                closeModal();
+                loadProducts();
+                toast('Produto salvo com sucesso.', 'ok');
+            } catch (err) {
+                console.error(err);
+                toast('Erro ao salvar. Veja o console (F12).', 'err');
+            } finally {
+                saveBtn.disabled    = false;
+                saveBtn.textContent = 'Salvar produto';
+            }
+        });
+
+        /* ── Excluir ── */
+        async function confirmDelete(id, nome) {
+            if (!confirm(`Excluir "${nome}"?\nEsta ação não pode ser desfeita.`)) return;
+            try {
+                await db.collection('produtos').doc(id).delete();
+                loadProducts();
+                toast('Produto excluído.', 'ok');
+            } catch (err) {
+                console.error(err);
+                toast('Erro ao excluir.', 'err');
+            }
+        }
+    </script>
+</body>
+</html>

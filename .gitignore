@@ -1,0 +1,14 @@
+# Chave privada do Firebase Admin — NUNCA commitar
+serviceAccountKey.json
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp

@@ -1,0 +1,200 @@
+[
+  {
+    "nome": "Attar Al Wesal",
+    "marca": "Al Wataniah",
+    "tipo": "Eau de Parfum",
+    "volume": "",
+    "preco": 0,
+    "notas": ["Oud", "Âmbar"],
+    "fotos": ["fotos_produtos/Al Wataniah/Attar Al Wesal/"],
+    "ordem": 1,
+    "ativo": true
+  },
+  {
+    "nome": "Sabah Al Ward",
+    "marca": "Al Wataniah",
+    "tipo": "Eau de Parfum",
+    "volume": "",
+    "preco": 0,
+    "notas": ["Rosa"],
+    "fotos": ["fotos_produtos/Al Wataniah/Sabah Al Ward/"],
+    "ordem": 2,
+    "ativo": true
+  },
+  {
+    "nome": "Milena",
+    "marca": "Ard al Zaafaran",
+    "tipo": "Eau de Parfum",
+    "volume": "",
+    "preco": 0,
+    "notas": ["Floral"],
+    "fotos": ["fotos_produtos/Ard al Zaafaran/Milena/"],
+    "ordem": 3,
+    "ativo": true
+  },
+  {
+    "nome": "Club de Nuit Woman",
+    "marca": "Armaf",
+    "tipo": "Eau de Parfum",
+    "volume": "100ml",
+    "preco": 0,
+    "notas": ["Floral", "Frutado"],
+    "fotos": ["fotos_produtos/Armaf/Club de Nuit Woman/"],
+    "ordem": 4,
+    "ativo": true
+  },
+  {
+    "nome": "Ya Habibti",
+    "marca": "Asdaaf",
+    "tipo": "Eau de Parfum",
+    "volume": "",
+    "preco": 0,
+    "notas": ["Oud", "Rosa"],
+    "fotos": ["fotos_produtos/Asdaaf/Ya Habibti/"],
+    "ordem": 5,
+    "ativo": true
+  },
+  {
+    "nome": "Pour Homme",
+    "marca": "Azzaro",
+    "tipo": "Eau de Toilette",
+    "volume": "100ml",
+    "preco": 0,
+    "notas": ["Cítrico", "Aromático"],
+    "fotos": ["fotos_produtos/Azzaro/Pour Homme/"],
+    "ordem": 6,
+    "ativo": true
+  },
+  {
+    "nome": "Asad",
+    "marca": "Lattafa",
+    "tipo": "Eau de Parfum",
+    "volume": "",
+    "preco": 0,
+    "notas": ["Oud", "Amadeirado"],
+    "fotos": ["fotos_produtos/Lattafa/Asad/"],
+    "ordem": 7,
+    "ativo": true
+  },
+  {
+    "nome": "Atheeri",
+    "marca": "Lattafa",
+    "tipo": "Eau de Parfum",
+    "volume": "",
+    "preco": 0,
+    "notas": ["Amadeirado", "Âmbar"],
+    "fotos": ["fotos_produtos/Lattafa/Atheeri/"],
+    "ordem": 8,
+    "ativo": true
+  },
+  {
+    "nome": "Fakhar Lattafa Black",
+    "marca": "Lattafa",
+    "tipo": "Eau de Parfum",
+    "volume": "100ml",
+    "preco": 0,
+    "notas": ["Oud", "Especiado"],
+    "fotos": ["fotos_produtos/Lattafa/Fakhar Lattafa Black/"],
+    "ordem": 9,
+    "ativo": true
+  },
+  {
+    "nome": "Fakhar Lattafa Gold",
+    "marca": "Lattafa",
+    "tipo": "Eau de Parfum",
+    "volume": "100ml",
+    "preco": 0,
+    "notas": ["Oud", "Âmbar"],
+    "fotos": ["fotos_produtos/Lattafa/Fakhar Lattafa Gold/"],
+    "ordem": 10,
+    "ativo": true
+  },
+  {
+    "nome": "Fakhar Lattafa White",
+    "marca": "Lattafa",
+    "tipo": "Eau de Parfum",
+    "volume": "100ml",
+    "preco": 0,
+    "notas": ["Floral", "Fresco"],
+    "fotos": ["fotos_produtos/Lattafa/Fakhar Lattafa White/"],
+    "ordem": 11,
+    "ativo": true
+  },
+  {
+    "nome": "Musamam White Intense",
+    "marca": "Lattafa",
+    "tipo": "Eau de Parfum",
+    "volume": "60ml",
+    "preco": 0,
+    "notas": ["Âmbar", "Oud", "Baunilha"],
+    "fotos": ["fotos_produtos/Lattafa/Musamam White Intense/"],
+    "ordem": 12,
+    "ativo": true
+  },
+  {
+    "nome": "Raed",
+    "marca": "Lattafa",
+    "tipo": "Eau de Parfum",
+    "volume": "",
+    "preco": 0,
+    "notas": ["Oud", "Rosa"],
+    "fotos": ["fotos_produtos/Lattafa/Raed/"],
+    "ordem": 13,
+    "ativo": true
+  },
+  {
+    "nome": "Delilah Pour Femme",
+    "marca": "Maison Alhambra",
+    "tipo": "Eau de Parfum",
+    "volume": "",
+    "preco": 0,
+    "notas": ["Floral", "Frutado"],
+    "fotos": ["fotos_produtos/Maison Alhambra/Delilah Pour Femme/"],
+    "ordem": 14,
+    "ativo": true
+  },
+  {
+    "nome": "Uniq One Hair Treatment",
+    "marca": "Revlon",
+    "tipo": "Tratamento Capilar",
+    "volume": "150ml",
+    "preco": 0,
+    "notas": ["Cuidado"],
+    "fotos": ["fotos_produtos/Revlon/Uniq One Hair Treatment/"],
+    "ordem": 15,
+    "ativo": true
+  },
+  {
+    "nome": "Body Lotions Set",
+    "marca": "Victoria's Secret",
+    "tipo": "Body Lotion",
+    "volume": "Kit",
+    "preco": 0,
+    "notas": ["Fragrância"],
+    "fotos": ["fotos_produtos/Victoria's Secret/Body Lotions Set/"],
+    "ordem": 16,
+    "ativo": true
+  },
+  {
+    "nome": "Lavender and Vanilla",
+    "marca": "Victoria's Secret",
+    "tipo": "Body Lotion",
+    "volume": "",
+    "preco": 0,
+    "notas": ["Lavanda", "Baunilha"],
+    "fotos": ["fotos_produtos/Victoria's Secret/Lavender and Vanilla/"],
+    "ordem": 17,
+    "ativo": true
+  },
+  {
+    "nome": "Love Spell",
+    "marca": "Victoria's Secret",
+    "tipo": "Body Lotion",
+    "volume": "",
+    "preco": 0,
+    "notas": ["Floral", "Frutado"],
+    "fotos": ["fotos_produtos/Victoria's Secret/Love Spell/"],
+    "ordem": 18,
+    "ativo": true
+  }
+]
